@@ -1,7 +1,6 @@
 package router
 
 import (
-	"net/http"
 	"os"
 
 	gin "github.com/gin-gonic/gin"
@@ -13,11 +12,12 @@ func Initialize() {
 	godotenv.Load()
 
 	// Define a route for the root path
-	router.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "Hello, World!",
-		})
-	})
+	// router.GET("/", func(c *gin.Context) {
+	// 	c.JSON(http.StatusOK, gin.H{
+	// 		"message": "Hello, World!",
+	// 	})
+	// })
+	initializeRoutes(router)
 
 	// Start the server on port 8080
 	port := os.Getenv("PORT")
